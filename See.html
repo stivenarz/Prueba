@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX | Usuario</title>
+    <style>
+        .btn{
+            border-radius: 2px;
+            background-color: blue;
+            color: white;
+            padding: 10px;
+
+        }
+    </style>
+</head>
+<body>
+    
+    <a href="/Prueba/Prueba.html" class="btn">Regresar</a>
+    
+    <h1 id="user" style="text-align: center;">User</h1>
+
+</body>
+<script>
+    const id = document.location.search.split('=')[1];
+    const url = `https://bootcamp-dia-3.camilomontoyau.now.sh/usuarios/${id}`;
+    fetch(url)
+    .then(response => response.json())
+    .then(response => {
+        usuario= response,
+        document.getElementById('user').innerHTML = ` ${usuario.nombre} ${usuario.apellido} `
+    });
+   
+</script>
+
+</html>
